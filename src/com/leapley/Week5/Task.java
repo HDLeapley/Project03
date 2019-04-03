@@ -1,9 +1,11 @@
 package com.leapley.Week5;
 
+import java.util.Iterator;
+
 /**
  * Created by 014327 on 2/13/2019.
  */
-public class Task {
+public class Task implements Comparable<Task>{
 
     private int taskNum;
     private String title;
@@ -42,4 +44,17 @@ public class Task {
         this.priority = priority;
     }
 
+    @Override
+    public int compareTo(Task o) {
+        if (priority != (o.priority)) {
+            if (priority>o.priority){
+                return -1;
+            }else{
+                return 1;
+            }
+        }
+        else {
+            return title.compareTo(o.title);
+        }
+    }
 }

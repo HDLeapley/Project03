@@ -1,15 +1,16 @@
 package com.leapley.Week5;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
  * Created by 014327 on 2/14/2019.
  */
-public class TaskList {
+public class TaskList implements Iterable<Task>{
 
     private Scanner scan = new Scanner(System.in);
-    private ArrayList<Task> taskList = new ArrayList<>(); //Array list to hold tasks
+    public ArrayList<Task> taskList = new ArrayList<>(); //Array list to hold tasks
 
     public void addTask(){ //Add a task method
 
@@ -129,6 +130,7 @@ public class TaskList {
                 }
             }
         }
+
     }
     public void listTasksPriority(){
         int taskPriority = 0;
@@ -156,5 +158,10 @@ public class TaskList {
                 System.out.println(task.getTaskNum() +") " + task.getTitle() + " ~ " + task.getPriority() +"\n" + task.getDescription());
             }
         }
+    }
+
+    @Override
+    public Iterator<Task> iterator() {
+        return taskList.iterator();
     }
 }

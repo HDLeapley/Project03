@@ -1,6 +1,7 @@
 package com.leapley.Week5;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /*
@@ -45,7 +46,11 @@ public class Main {
                 break;
             case "3": taskList.editTask(); //Run edit task method in taskList
                 break;
-            case "4": taskList.listTasks(); //Run list task method in taskList
+            case "4":
+                Collections.sort(taskList.taskList);
+                for(Task task: taskList) {
+                    System.out.println(task.getTaskNum() +") " + task.getTitle() + " ~ " + task.getPriority() +"\n" + task.getDescription());
+                }//Run list task method in taskList
                 break;
             case "5": taskList.listTasksPriority(); //Run listTaskPriority method in taskList
                 break;
